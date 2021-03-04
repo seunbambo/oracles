@@ -14,12 +14,12 @@ contract Oracle {
     }
 
     function updateReporter(address reporter, bool isReporter) external {
-        require(msg.sender == admin, "Only admin");
+        require(msg.sender == admin, "only admin");
         reporters[reporter] = isReporter;
     }
 
     function updateData(bytes32 key, uint256 payload) external {
-        require(reporters[msg.sender] == true, "Only reporters");
+        require(reporters[msg.sender] == true, "only reporters");
         data[key] = Data(block.timestamp, payload);
     }
 
